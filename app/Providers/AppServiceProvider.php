@@ -9,6 +9,7 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->singleton('files', fn () => new \Illuminate\Filesystem\Filesystem);
+        $this->app->singleton('cache', fn ($app) => new \Illuminate\Cache\CacheManager($app));
     }
 
     public function boot(): void
