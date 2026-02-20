@@ -8,7 +8,12 @@
     <meta name="description" content="LocalSaver - Discover and redeem nearby coupons. Save money on local deals.">
     <link rel="manifest" href="/manifest.json">
     <title>{{ $title ?? 'LocalSaver' }} - Deals Near You</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @if(file_exists(public_path('build/manifest.json')))
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @else
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.1/dist/tailwind.min.css">
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3/dist/cdn.min.js"></script>
+    @endif
     @stack('styles')
 </head>
 <body class="min-h-screen bg-gradient-to-br from-slate-950 via-indigo-950/50 to-slate-950 text-white">
