@@ -17,7 +17,7 @@ return new class extends Migration
             $table->timestamp('responded_at')->nullable();
             $table->timestamps();
 
-            $table->unique(['requester_business_id', 'target_business_id']);
+            $table->unique(['requester_business_id', 'target_business_id'], 'part_req_requester_target_unique');
         });
     }
 
