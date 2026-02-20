@@ -26,9 +26,6 @@ return new class extends Migration
         Schema::table('coupons', function (Blueprint $table) {
             $table->dropIndex(['expiry_date']);
         });
-        Schema::table('businesses', function (Blueprint $table) {
-            $table->dropIndex(['lat', 'lng']);
-        });
         Schema::table('redemptions', function (Blueprint $table) {
             $table->dropIndex(['user_id', 'coupon_id']);
         });
