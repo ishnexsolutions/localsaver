@@ -145,6 +145,9 @@ class CouponRankingService
         foreach ($couponIds as $id) {
             $scores[$id] = $this->getCachedPopularity($id);
         }
+        if ($scores === []) {
+            return [];
+        }
         $max = max(array_values($scores)) ?: 1;
         foreach ($scores as $id => $val) {
             $scores[$id] = $val / $max;
