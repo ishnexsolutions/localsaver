@@ -3,6 +3,7 @@
 return [
     App\Providers\AppServiceProvider::class,
     Illuminate\Encryption\EncryptionServiceProvider::class,
+    Illuminate\Cookie\CookieServiceProvider::class,
     Illuminate\Translation\TranslationServiceProvider::class,
     Illuminate\View\ViewServiceProvider::class,
     Illuminate\Auth\AuthServiceProvider::class,
