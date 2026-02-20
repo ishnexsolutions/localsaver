@@ -8,26 +8,15 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::table('coupons', function (Blueprint $table) {
-            $table->index('expiry_date');
-        });
-
-        Schema::table('businesses', function (Blueprint $table) {
-            $table->index(['lat', 'lng']);
-        });
-
         Schema::table('redemptions', function (Blueprint $table) {
-            $table->index(['user_id', 'coupon_id']);
+            $table->index(['user_id', 'coupon_id'], 'redemptions_user_coupon_idx');
         });
     }
 
     public function down(): void
     {
-        Schema::table('coupons', function (Blueprint $table) {
-            $table->dropIndex(['expiry_date']);
-        });
         Schema::table('redemptions', function (Blueprint $table) {
-            $table->dropIndex(['user_id', 'coupon_id']);
+            $table->dropIndex('redemptions_user_coupon_idx');
         });
     }
 };
