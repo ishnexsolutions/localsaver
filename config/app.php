@@ -16,6 +16,9 @@ return [
     'maintenance' => [
         'driver' => env('APP_MAINTENANCE_DRIVER', 'file'),
     ],
-    'providers' => require __DIR__.'/../bootstrap/providers.php',
+    'providers' => array_merge(
+        require __DIR__.'/../bootstrap/providers.php',
+        ServiceProvider::defaultProviders()->toArray()
+    ),
     'aliases' => Facade::defaultAliases()->merge([])->toArray(),
 ];
